@@ -24,7 +24,7 @@ realtime-logwatch/
 
 # 🔎 Real-Time Log Monitoring & Alert System
 
-A real-time log collection, processing, and visualization platform built using Flask, Kafka, MongoDB, and Docker. This system simulates production-grade log monitoring tools like ELK Stack (Elasticsearch + Logstash + Kibana), but is lightweight and tailored for Python environments.
+A real-time log collection, processing, and visualization platform built using Flask, Kafka, MongoDB, and Docker. 
 
 ---
 
@@ -34,26 +34,6 @@ A real-time log collection, processing, and visualization platform built using F
 - 🧠 **Log Filtering and Alerting** by a Kafka Consumer
 - 💾 **Log Storage** in MongoDB for durability
 - 🌐 **Flask Web Dashboard** to view logs
-- 🔔 Optional alerts via email, Slack, or other integrations
-- 🔄 Real-time log updates with **Flask-SocketIO**
-- 🐳 Fully containerized with **Docker Compose**
-
----
-
-## 🛠 Tech Stack
-
-| Layer                  | Technology            | Purpose                             |
-|------------------------|-----------------------|-------------------------------------|
-| Web Framework          | Flask                 | Backend API and web dashboard       |
-| WSGI Server            | Gunicorn              | Production-ready web server         |
-| Streaming Platform     | Apache Kafka          | Log pipeline                        |
-| Kafka Integration      | kafka-python          | Kafka Producer & Consumer API       |
-| Database               | MongoDB               | Persistent log storage              |
-| DB Integration         | Flask-PyMongo         | Flask ↔ MongoDB                     |
-| Environment Config     | python-dotenv         | Manage app secrets & configs        |
-| HTTP Client            | requests              | External API calls                  |
-| Real-time Frontend     | Flask-SocketIO        | Real-time log updates in dashboard  |
-| Containerization       | Docker + Docker Compose| Consistent development & deployment |
 
 ---
 
