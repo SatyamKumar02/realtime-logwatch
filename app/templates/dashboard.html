@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+
+  <h2 class="mb-4">Send New Log</h2>
+  <form action="{{ url_for('main.send_log_route') }}" method="post" class="row g-3">
+    <div class="col-md-4">
+      <input type="text" name="service" class="form-control" placeholder="Service Name" required>
+    </div>
+    <div class="col-md-4">
+      <input type="text" name="severity" class="form-control" placeholder="Severity (INFO, WARNING, ERROR)" required>
+    </div>
+    <div class="col-md-4">
+      <input type="text" name="message" class="form-control" placeholder="Message" required>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Send Log</button>
+    </div>
+  </form>
+
+  <hr class="my-5">
+
+  <h2 class="mb-4">Recent Logs</h2>
+  <div class="list-group">
+    {% for log in logs %}
+      <div class="list-group-item list-group-item-action 
+          {% if log['severity'] == 'ERROR' %}list-group-item-danger
+          {% elif log['severity'] == 'WARNING' %}list-group-item-warning
+          {% else %}list-group-item-light{% endif %}">
+        
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ log['service'] }}</h5>
+            {% if log['timestamp'] %}
+                <small>{{ log['timestamp'].strftime('%Y-%m-%d %H:%M:%S') }}</small>
+            {% else %}
+                <small>Unknown time</small>
+            {% endif %}
+        </div>
+        
+        <p class="mb-1">{{ log['message'] }}</p>
+        <small>Severity: {{ log['severity'] }}</small>
+      </div>
+    {% else %}
+      <p>No logs found.</p>
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}

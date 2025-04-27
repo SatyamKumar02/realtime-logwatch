@@ -1,0 +1,14 @@
+flask==3.1.0
+flask-pymongo==2.3.0
+flask-login==0.6.3
+flask-wtf==1.2.2
+flask-socketio==5.3.6
+flask-cors==4.0.0
+wtforms==3.2.1
+email_validator==2.2.0
+python-dotenv==1.0.1
+
+kafka-python==2.0.2
+pymongo==4.11.3
+requests==2.31.0
+gunicorn==21.2.0

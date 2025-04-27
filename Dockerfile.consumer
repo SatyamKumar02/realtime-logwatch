@@ -1,0 +1,19 @@
+# Dockerfile.consumer
+
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy only what's needed
+COPY app/kafka_consumer/consumer.py app/kafka_consumer/consumer.py
+COPY requirements.txt requirements.txt
+
+# Install dependencies (just the needed ones)
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Set environment variables (optional)
+ENV PYTHONUNBUFFERED=1
+
+# Start the consumer
+CMD ["python", "app/kafka_consumer/consumer.py"]
